@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.btn {
+    @apply w-full
+}
+
+@layer base {
+    body {
+        @apply bg-[#205781];
+        font-family: 'Gowun Dodum', sans-serif;
+    }
+
+    a {
+        @apply text-orange-400;
+    }
+}
+
+@layer utilities {
+    .text-bigger-hello {
+        font-size: 4000px;
+    }
+
+    .text-other-hello {
+        @apply text-3xl font-semibold
+    }
+
+    .text-1\.5xl {
+        font-size: 1.25rem;
+        /* text-xl과 text-2xl 사이의 크기 */
+    }
+
+    .text-10xl {
+        font-size: 10rem;
+        /* 160px */
+    }
+
+    /* 스크롤바 숨기기 */
+    .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+    }
+
+    .scrollbar-hide {
+        -ms-overflow-style: none;
+        /* IE and Edge */
+        scrollbar-width: none;
+        /* Firefox */
+    }
+}
+
+@layer components {
+    .primary-btn {
+        @apply w-full bg-orange-500 text-white font-medium py-2.5 rounded-md text-center hover:bg-orange-400 transition-colors
+    }
+
+    .primary-input {
+        @apply bg-transparent rounded-md w-full h-10 focus:outline-none ring-1 focus:ring-2 ring-neutral-200 focus:ring-orange-500 border-none placeholder:text-neutral-300
+    }
+}

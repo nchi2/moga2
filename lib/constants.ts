@@ -1,0 +1,16 @@
+export const PASSWORD_MIN_LENGTH = 4;
+export const PASSWORD_MAX_LENGTH = 16;
+export const USERNAME_MIN_LENGTH = 5;
+export const USERNAME_MAX_LENGTH = 10;
+export const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+export const PASSWORD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+export const USERNAME_REGEX = /^[a-zA-Z0-9_]{3,16}$/;
+export const FORBIDDEN_WORDS = ["sex", "fuck", "porn", "nsfw", "xxx"];
+export const EMAIL_MIN_LENGTH = 5;
+export const EMAIL_MAX_LENGTH = 50;
+export const PASSWORD_ERROR_MESSAGE = "Password must contain at least one capital letter, one lowercase letter, one number, and one special character (!@#$%^&*)";
+export const EMAIL_ERROR_MESSAGE = "Invalid email address";
+export const USERNAME_ERROR_MESSAGE = "Username must contain only letters, numbers, and underscores";
+export const PHONE_MIN_LENGTH = 10;
+export const PHONE_MAX_LENGTH = 11;
+export const PHONE_ERROR_MESSAGE = "Invalid phone number format";
