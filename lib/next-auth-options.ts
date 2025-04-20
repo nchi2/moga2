@@ -1,17 +1,9 @@
-import NextAuth, { DefaultSession, AuthOptions } from "next-auth";
+// lib/next-auth-options.ts
+import { AuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import KakaoProvider from "next-auth/providers/kakao";
 import db from "@/lib/db";
 import bcrypt from "bcrypt";
-
-// 세션 타입 확장
-declare module "next-auth" {
-  interface Session {
-    user: {
-      id: string;
-    } & DefaultSession["user"];
-  }
-}
 
 export const authOptions: AuthOptions = {
   providers: [
@@ -29,7 +21,6 @@ export const authOptions: AuthOptions = {
         if (!credentials?.email || !credentials?.password) {
           return null;
         }
-
         try {
           const user = await db.user.findUnique({
             where: { email: credentials.email },
@@ -86,7 +77,3 @@ export const authOptions: AuthOptions = {
   },
   debug: process.env.NODE_ENV === "development",
 };
-
-const handler = NextAuth(authOptions);
-
-export { handler as GET, handler as POST };

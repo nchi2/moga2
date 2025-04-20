@@ -1,4 +1,4 @@
-import NextAuth, { DefaultSession, AuthOptions } from "next-auth";
+import { DefaultSession, AuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import KakaoProvider from "next-auth/providers/kakao";
 import db from "@/lib/db";
@@ -86,7 +86,3 @@ export const authOptions: AuthOptions = {
   },
   debug: process.env.NODE_ENV === "development",
 };
-
-const handler = NextAuth(authOptions);
-
-export { handler as GET, handler as POST };
