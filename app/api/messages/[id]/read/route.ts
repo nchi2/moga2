@@ -1,11 +1,13 @@
-import { NextRequest, NextResponse } from "next/server";
+import { type NextRequest, NextResponse } from "next/server";
+
 import { getServerSession } from "next-auth";
-import { authOptions } from "@/app/api/auth/[...nextauth]/auth";
+import { authOptions } from "@/lib/next-auth-options";
+
 import db from "@/lib/db";
 
 export async function POST(
   request: NextRequest,
-  context: { params: { id: string } }
+  { params }: { params: { id: string } }
 ) {
   try {
     const session = await getServerSession(authOptions);
@@ -17,7 +19,7 @@ export async function POST(
     }
 
     const updatedMessage = await db.message.update({
-      where: { id: context.params.id },
+      where: { id: params.id },
       data: { status: "read" },
     });
 
